@@ -1,0 +1,401 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useNavigate, useLocation } from 'react-router-dom';
+import styled, { keyframes, css } from 'styled-components';
+import logo from "../../assets/images/logo.png";
+import {
+  FaTachometerAlt,
+  FaUserInjured,
+  FaUserNurse,
+  FaHistory,
+  FaSignOutAlt,
+  FaTimes,
+  FaBars,
+  FaChevronDown,
+  FaChevronRight
+} from 'react-icons/fa';
+import LogoutModal from '../../components/LogoutModal';
+
+// Colors
+const colors = {
+  primary: '#395886',
+  white: '#FFFFFF',
+  green: '#477977',
+  lightGray: '#f5f5f5',
+  darkGray: '#363949',
+  mediumGray: '#7d8da1',
+  danger: '#e74c3c'
+};
+
+// Animations
+const slideIn = keyframes`
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+`;
+
+const fadeIn = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
+`;
+
+// Styled Components
+const Aside = styled.aside`
+  height: 100vh;
+  width: 280px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: ${colors.white};
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+  transition: all 0.3s ease;
+  z-index: 100;
+
+  @media screen and (max-width: 768px) {
+    transform: translateX(-100%);
+    width: 300px;
+    ${({ $mobileMenuOpen }) =>
+      $mobileMenuOpen &&
+      css`
+        animation: ${slideIn} 0.3s ease-out forwards;
+        box-shadow: 8px 0 30px rgba(0, 0, 0, 0.15);
+      `}
+  }
+`;
+
+const TopSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 1rem;
+`;
+
+const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+`;
+
+const LogoImage = styled.img`
+  width: 2.8rem;
+  height: 2.8rem;
+  object-fit: contain;
+`;
+
+const LogoText = styled.h2`
+  color: ${colors.primary};
+  font-weight: 800;
+  font-size: 1.4rem;
+  margin: 0;
+`;
+
+const LogoSubtext = styled.span`
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: ${colors.mediumGray};
+  margin-left: 0.5rem;
+`;
+
+const UserInfoTop = styled.div`
+  margin: 1rem 0;
+  padding: 0.7rem 1rem;
+  background: rgba(57, 88, 134, 0.06);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: ${colors.darkGray};
+  font-weight: 600;
+`;
+
+const UserRole = styled.div`
+  margin-top: 0.2rem;
+  background: ${colors.lightGray};
+  color: ${colors.mediumGray};
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  display: inline-block;
+`;
+
+const CloseButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  display: none;
+  color: ${colors.mediumGray};
+  cursor: pointer;
+
+  &:hover {
+    color: ${colors.primary};
+    transform: scale(1.1);
+  }
+
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+`;
+
+const MobileMenuButton = styled.button`
+  display: none;
+  position: fixed;
+  top: 1.2rem;
+  left: 1.2rem;
+  background: ${colors.primary};
+  color: ${colors.white};
+  border: none;
+  border-radius: 10px;
+  padding: 0.85rem;
+  z-index: 90;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(57, 88, 134, 0.2);
+
+  &:hover {
+    background: ${colors.green};
+    transform: scale(1.05);
+  }
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+  }
+`;
+
+const Backdrop = styled.div`
+  display: ${({ $mobileMenuOpen }) => ($mobileMenuOpen ? 'block' : 'none')};
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 90;
+  animation: ${fadeIn} 0.3s ease-out;
+`;
+
+const SidebarMenu = styled.div`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 0.5rem 0;
+`;
+
+const MenuItem = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0.85rem 1.2rem;
+  margin: 0.3rem 0;
+  border-radius: 10px;
+  color: ${colors.darkGray};
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    background: rgba(57, 88, 134, 0.08);
+    color: ${colors.primary};
+  }
+
+  &.active {
+    background: rgba(57, 88, 134, 0.1);
+    color: ${colors.primary};
+    font-weight: 600;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: ${colors.primary};
+      border-radius: 0 10px 10px 0;
+    }
+  }
+`;
+
+const MenuIcon = styled.span`
+  margin-right: 1.2rem;
+  font-size: 1.2rem;
+`;
+
+const MenuText = styled.span`
+  font-weight: 500;
+`;
+
+const SubMenuContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 1.5rem;
+  padding-left: 1rem;
+  border-left: 2px dashed rgba(57, 88, 134, 0.2);
+  overflow: hidden;
+  max-height: ${({ $isOpen }) => ($isOpen ? '500px' : '0')};
+  transition: max-height 0.3s ease;
+`;
+
+const SubMenuItem = styled(MenuItem)`
+  padding: 0.6rem 1rem;
+  margin: 0.2rem 0;
+  font-size: 0.95rem;
+`;
+
+const ExpandIcon = styled.span`
+  margin-left: auto;
+  transition: transform 0.3s ease;
+  transform: ${({ $isOpen }) => ($isOpen ? 'rotate(0deg)' : 'rotate(-90deg)')};
+  font-size: 0.9rem;
+  color: ${colors.mediumGray};
+`;
+
+const LogoutButton = styled(MenuItem)`
+  margin-top: auto;
+  color: ${colors.danger};
+  background: rgba(231, 76, 60, 0.05);
+
+  &:hover {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: ${colors.danger};
+    &::after {
+      background: ${colors.danger};
+    }
+  }
+`;
+
+const AdminSidebar = ({ user }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const [openSubMenu, setOpenSubMenu] = React.useState(null);
+  const [showLogoutModal, setShowLogoutModal] = React.useState(false);
+
+  React.useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [mobileMenuOpen]);
+
+  const isActive = (path) => location.pathname.includes(path) ? 'active' : '';
+
+  const toggleSubMenu = (index) => {
+    setOpenSubMenu(openSubMenu === index ? null : index);
+  };
+
+  const handleLogoutClick = () => {
+    setShowLogoutModal(true);
+  };
+
+  const handleLogoutConfirm = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    navigate('/login');
+  };
+
+  const handleCancelLogout = () => {
+    setShowLogoutModal(false);
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const menuItems = [
+    { name: "Dashboard", icon: <FaTachometerAlt />, path: "/admin/AdminDashboard", match: "AdminDashboard" },
+    { name: "Patients", icon: <FaUserInjured />, path: "/admin/PatientList", match: "PatientList" },
+    { name: "System Logs", icon: <FaHistory />, path: "/admin/AuditLogList", match: "AuditLogList" },
+  ];
+
+  return (
+    <>
+      <MobileMenuButton onClick={toggleMobileMenu}>
+        {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+      </MobileMenuButton>
+
+      <Backdrop $mobileMenuOpen={mobileMenuOpen} onClick={toggleMobileMenu} />
+
+      <Aside $mobileMenuOpen={mobileMenuOpen}>
+        <TopSection>
+          <LogoContainer>
+            <LogoImage src={logo} alt="DialiEase Logo" />
+            <div>
+              <LogoText>DIALIEASE</LogoText>
+              <LogoSubtext>Admin Panel</LogoSubtext>
+            </div>
+          </LogoContainer>
+          <CloseButton onClick={toggleMobileMenu}><FaTimes /></CloseButton>
+        </TopSection>
+
+        {user && (
+          <UserInfoTop>
+            {user.first_name} {user.last_name}
+            <UserRole>CAPD Administrator</UserRole>
+          </UserInfoTop>
+        )}
+
+        <SidebarMenu>
+          {menuItems.map((item) => (
+            <MenuItem
+              key={item.name}
+              className={isActive(item.match)}
+              onClick={() => {
+                navigate(item.path);
+                setMobileMenuOpen(false);
+              }}
+            >
+              <MenuIcon>{item.icon}</MenuIcon>
+              <MenuText>{item.name}</MenuText>
+            </MenuItem>
+          ))}
+
+          {/* CAPD Employee Dropdown */}
+          <MenuItem onClick={() => toggleSubMenu('capd')}>
+            <MenuIcon><FaUserNurse /></MenuIcon>
+            <MenuText>CAPD Employee</MenuText>
+            <ExpandIcon $isOpen={openSubMenu === 'capd'}><FaChevronDown /></ExpandIcon>
+          </MenuItem>
+
+          <SubMenuContainer $isOpen={openSubMenu === 'capd'}>
+            <SubMenuItem
+              className={isActive('HCproviderList')}
+              onClick={() => {
+                navigate('/admin/HCproviderList');
+                setMobileMenuOpen(false);
+              }}
+            >
+              <MenuText>CAPD Employee List</MenuText>
+            </SubMenuItem>
+
+            <SubMenuItem
+              className={isActive('TodayCAPDEmpStat')}
+              onClick={() => {
+                navigate('/admin/TodayCAPDEmpStat');
+                setMobileMenuOpen(false);
+              }}
+            >
+              <MenuText>CAPD Employee Status</MenuText>
+            </SubMenuItem>
+          </SubMenuContainer>
+
+          <LogoutButton onClick={handleLogoutClick}>
+            <MenuIcon><FaSignOutAlt /></MenuIcon>
+            <MenuText>Logout</MenuText>
+          </LogoutButton>
+        </SidebarMenu>
+      </Aside>
+
+      {showLogoutModal && (
+        <LogoutModal 
+          onConfirm={handleLogoutConfirm} 
+          onCancel={handleCancelLogout} 
+        />
+      )}
+    </>
+  );
+};
+
+AdminSidebar.propTypes = {
+  user: PropTypes.shape({
+    first_name: PropTypes.string,
+    last_name: PropTypes.string,
+  }),
+};
+
+export default AdminSidebar;

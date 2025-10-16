@@ -1,0 +1,899 @@
+/* Base Styles */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2980b9;
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+  --warning-color: #f39c12;
+  --info-color: #3498db;
+  --light-color: #ecf0f1;
+  --dark-color: #2c3e50;
+  --text-color: #333;
+  --text-light: #7f8c8d;
+  --bg-color: #f5f7fa;
+  --card-bg: #ffffff;
+  --border-color: #dfe6e9;
+  --input-bg: #ffffff;
+  --input-border: #bdc3c7;
+  --input-focus: #3498db;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Registration Success Section */
+.registration-success-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-top: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.success-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.success-header h2 {
+    color: #2e7d32;
+    margin-top: 15px;
+}
+
+.success-icon-large {
+    font-size: 50px;
+    color: #2e7d32;
+}
+
+.registration-details-box, .appointment-details-box {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.registration-details-box h3, .appointment-details-box h3 {
+    color: #1a5276;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.detail-value {
+    color: #333;
+    font-size: 16px;
+}
+
+.detail-icon {
+    margin-right: 8px;
+    color: #1a5276;
+}
+
+.appointment-notes {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #e8f5e9;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.note-icon {
+    margin-right: 5px;
+    color: #2e7d32;
+}
+
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.download-certificate-button, 
+.back-to-list-button, 
+.register-another-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.download-certificate-button {
+    background-color: #1a5276;
+    color: white;
+}
+
+.download-certificate-button:hover {
+    background-color: #154360;
+}
+
+.back-to-list-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.back-to-list-button:hover {
+    background-color: #218838;
+}
+
+.register-another-button {
+    background-color: #6c757d;
+    color: white;
+}
+
+.register-another-button:hover {
+    background-color: #5a6268;
+}
+
+@media (max-width: 768px) {
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .action-buttons button {
+        width: 100%;
+    }
+}
+
+/* Notification Center */
+.notification-center {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    max-width: 350px;
+    width: 100%;
+}
+
+.notification {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.95;
+}
+
+.notification:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.notification-icon {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.notification-message {
+    flex: 1;
+    font-size: 14px;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.notification.error {
+    background-color: #e74c3c;
+}
+
+.notification.success {
+    background-color: #2ecc71;
+}
+
+.notification.info {
+    background-color: #3498db;
+}
+
+.notification.warning {
+    background-color: #f39c12;
+}
+
+/* Dark Mode Variables */
+.dark-mode {
+  --primary-color: #3498db;
+  --secondary-color: #2980b9;
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+  --warning-color: #f39c12;
+  --info-color: #3498db;
+  --light-color: #34495e;
+  --dark-color: #ecf0f1;
+  --text-color: #ecf0f1;
+  --text-light: #bdc3c7;
+  --bg-color: #2c3e50;
+  --card-bg: #34495e;
+  --border-color: #4a6278;
+  --input-bg: #2c3e50;
+  --input-border: #4a6278;
+  --input-focus: #3498db;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Wrapper Styles */
+.wrapper {
+  width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.add-patient-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  margin-top: 1780px;
+  position: relative;
+  left: 10%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.add-patient-content {
+  flex: 1;
+  padding: 2rem;
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  transition: var(--transition);
+}
+
+/* Header Styles */
+.add-patient-header {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.add-patient-title {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.add-patient-back-button {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  transition: var(--transition);
+}
+
+.add-patient-back-button:hover {
+  background-color: var(--primary-color);
+}
+
+.add-patient-back-button:disabled {
+  background-color: var(--text-light);
+  cursor: not-allowed;
+}
+
+/* Progress Indicator */
+.add-patient-progress {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  position: relative;
+  max-width: 800px;
+}
+
+.add-patient-progress::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--border-color);
+  z-index: 1;
+}
+
+.add-patient-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+.add-patient-step span {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.add-patient-step.completed span {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.add-patient-step.active span {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.add-patient-step p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.add-patient-step.completed p,
+.add-patient-step.active p {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+/* Form Container */
+.add-patient-form-container {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.add-patient-form-wide {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-intro-wide {
+  margin-bottom: 1rem;
+}
+
+.form-intro-wide h2 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.form-intro-wide p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+/* Form Sections */
+.form-section-wide {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  background-color: var(--card-bg);
+  transition: var(--transition);
+}
+
+.section-title-wide {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-help {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.section-help .help-icon {
+  color: var(--info-color);
+}
+
+/* Form Grid Layouts */
+.form-grid-4col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-grid-2col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-grid-1col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Form Groups */
+.add-patient-form-group-wide {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.add-patient-form-group-wide label {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.add-patient-form-group-wide .label-icon {
+  color: var(--primary-color);
+}
+
+.required {
+  color: var(--error-color);
+}
+
+/* Input Styles */
+.add-patient-form-group-wide input,
+.add-patient-form-group-wide select {
+  padding: 0.75rem;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.add-patient-form-group-wide input:focus,
+.add-patient-form-group-wide select:focus {
+  outline: none;
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.read-only-input {
+  background-color: var(--light-color) !important;
+  cursor: not-allowed;
+}
+
+/* Password Input Container */
+.password-input-container {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.password-toggle:hover {
+  color: var(--primary-color);
+}
+
+/* Password Strength Meter */
+.password-strength-meter {
+  width: 100%;
+  height: 5px;
+  background-color: var(--border-color);
+  border-radius: 3px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.strength-bar {
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.strength-text {
+  display: block;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  color: var(--text-light);
+}
+
+/* Input Hints */
+.input-hint {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-top: 0.25rem;
+}
+
+/* Age Display */
+.age-display {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.age-label {
+  color: var(--text-light);
+}
+
+.age-value {
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+/* Info Boxes */
+.info-box {
+  background-color: rgba(52, 152, 219, 0.1);
+  border-left: 4px solid var(--info-color);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.info-box h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-box .info-icon {
+  color: var(--info-color);
+}
+
+.info-box ul {
+  margin: 0.5rem 0 0 1rem;
+  padding: 0;
+}
+
+.info-box li {
+  margin-bottom: 0.25rem;
+}
+
+.scheduling-info-box {
+  background-color: rgba(46, 204, 113, 0.1);
+  border-left-color: var(--success-color);
+}
+
+.scheduling-info-box .info-icon {
+  color: var(--success-color);
+}
+
+.password-requirements-box-wide {
+  background-color: rgba(155, 89, 182, 0.1);
+  border-left-color: #9b59b6;
+}
+
+.password-requirements-box-wide .info-icon {
+  color: #9b59b6;
+}
+
+.requirements-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.requirements-grid div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.requirements-grid .valid {
+  color: var(--success-color);
+}
+
+.requirement-icon {
+  font-size: 0.8rem;
+}
+
+/* Form Actions */
+.form-actions-wide {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.add-patient-submit-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.add-patient-submit-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.add-patient-submit-button:disabled {
+  background-color: var(--text-light);
+  cursor: not-allowed;
+}
+
+.add-patient-submit-button.loading {
+  cursor: wait;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.form-disclaimer {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.form-disclaimer .disclaimer-icon {
+  color: var(--info-color);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+/* Full Width Inputs */
+.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Notification Center */
+.notification-center {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 400px;
+}
+
+.notification {
+  padding: 1rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  background-color: var(--card-bg);
+  border-left: 4px solid;
+}
+
+.notification:hover {
+  transform: translateY(-3px);
+}
+
+.notification.info {
+  border-left-color: var(--info-color);
+}
+
+.notification.error {
+  border-left-color: var(--error-color);
+}
+
+.notification.success {
+  border-left-color: var(--success-color);
+}
+
+.notification-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.notification.info .notification-icon {
+  color: var(--info-color);
+}
+
+.notification.error .notification-icon {
+  color: var(--error-color);
+}
+
+.notification.success .notification-icon {
+  color: var(--success-color);
+}
+
+.notification-message {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+.notification-close {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 0;
+  margin-left: 0.5rem;
+}
+
+/* Error and Success Messages */
+.add-patient-error,
+.add-patient-success {
+  padding: 1rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.add-patient-error {
+  background-color: rgba(231, 76, 60, 0.1);
+  border-left: 4px solid var(--error-color);
+}
+
+.add-patient-success {
+  background-color: rgba(46, 204, 113, 0.1);
+  border-left: 4px solid var(--success-color);
+}
+
+.error-icon,
+.success-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.error-icon {
+  color: var(--error-color);
+}
+
+.success-icon {
+  color: var(--success-color);
+}
+
+.error-message,
+.success-message {
+  flex: 1;
+}
+
+.error-close,
+.success-close {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 0;
+  margin-left: 0.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .form-grid-4col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .add-patient-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .form-grid-3col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .form-grid-4col,
+  .form-grid-3col,
+  .form-grid-2col {
+    grid-template-columns: 1fr;
+  }
+  
+  .add-patient-container {
+    width: 100%;
+    left: 0;
+  }
+  
+  .add-patient-title {
+    font-size: 1.5rem;
+  }
+  
+  .requirements-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .add-patient-form-container {
+    padding: 1rem;
+  }
+  
+  .form-section-wide {
+    padding: 1rem;
+  }
+  
+  .notification-center {
+    max-width: calc(100% - 40px);
+  }
+}

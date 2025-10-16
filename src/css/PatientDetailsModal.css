@@ -1,0 +1,258 @@
+.patient-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: relative;
+    background-color: white;
+    border-radius: 0.5rem;
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 1001;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #718096;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.patient-avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: #3182ce;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.patient-title h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.patient-subtitle {
+    font-size: 0.9rem;
+    color: #718096;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-section {
+    margin-bottom: 2rem;
+}
+
+.modal-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #1a202c;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.metric-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #f7fafc;
+}
+
+.metric-icon {
+    font-size: 1.5rem;
+    color: #3182ce;
+}
+
+.metric-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: #718096;
+}
+
+.chart-container {
+    height: 300px;
+    margin-bottom: 1.5rem;
+}
+
+.treatments-table {
+    overflow-x: auto;
+}
+
+.treatments-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.treatments-table th, 
+.treatments-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.treatments-table th {
+    font-size: 0.85rem;
+    color: #718096;
+    font-weight: 500;
+}
+
+.treatments-table td {
+    font-size: 0.9rem;
+}
+
+.color-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.8rem;
+}
+
+.color-clear {
+    background-color: #ebf8ff;
+    color: #3182ce;
+}
+
+.color-normal {
+    background-color: #f0fff4;
+    color: #38a169;
+}
+
+.color-abnormal {
+    background-color: #fff5f5;
+    color: #e53e3e;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.8rem;
+    color: white;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.info-item {
+    margin-bottom: 1rem;
+}
+
+.info-item label {
+    display: block;
+    font-size: 0.85rem;
+    color: #718096;
+    margin-bottom: 0.25rem;
+}
+
+.info-item p {
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e2e8f0;
+    gap: 1rem;
+}
+
+.btn-print {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-close {
+    background-color: #3182ce;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.positive {
+    color: #38a169;
+}
+
+.negative {
+    color: #e53e3e;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+    }
+    
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}

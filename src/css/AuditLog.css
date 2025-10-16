@@ -1,0 +1,407 @@
+/* AuditLog.css */
+.auditlog-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8fafc;
+    font-family: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif';
+}
+
+.auditlog-content {
+    flex: 1;
+    padding: 2rem 3rem; /* Increased horizontal padding */
+    margin-left: 240px; /* Reduced sidebar margin to give more space */
+    margin-top: 20px;
+    transition: margin-left 0.3s ease;
+    max-width: 1600px; /* Added maximum width */
+    width: calc(100% - 240px); /* Full width minus sidebar */
+}
+
+@media (max-width: 992px) {
+    .auditlog-content {
+        margin-left: 0;
+        padding: 1.5rem 2rem; /* Still increased horizontal padding on mobile */
+        width: 100%;
+    }
+}
+
+/* Made search box wider */
+.auditlog-search-box {
+    position: relative;
+    flex: 1;
+    min-width: 300px; /* Increased from 250px */
+    max-width: 500px; /* Increased from 400px */
+}
+
+/* Made table take full width */
+.auditlog-table-wrapper {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Increased table cell padding for better spacing */
+.auditlog-th, .auditlog-td {
+    padding: 1rem 2rem; /* Increased horizontal padding */
+}
+
+/* Made truncated text wider */
+.auditlog-truncate-text {
+    max-width: 300px; /* Increased from 200px */
+}
+
+/* Rest of your existing CSS remains the same */
+.auditlog-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.auditlog-header-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.auditlog-heading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    margin: 0 0 0.25rem 0;
+}
+
+.auditlog-header-icon {
+    margin-right: 12px;
+    color: #4f46e5;
+}
+
+.auditlog-sub-heading {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.auditlog-header-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.auditlog-search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.auditlog-search-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0;
+    font-size: 0.9375rem;
+    color: #334155;
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+}
+
+.auditlog-search-input:focus {
+    border-color: #818cf8;
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.2);
+}
+
+.auditlog-action-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.auditlog-button-primary {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+}
+
+.auditlog-button-primary:hover {
+    background-color: #4338ca;
+}
+
+.auditlog-button-secondary {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    background-color: #ffffff;
+    color: #4f46e5;
+    border: 1px solid #e2e8f0;
+}
+
+.auditlog-button-secondary:hover {
+    background-color: #f1f5f9;
+    border-color: #c7d2fe;
+}
+
+.auditlog-button-secondary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.auditlog-button-icon {
+    margin-right: 8px;
+}
+
+.auditlog-spin {
+    animation: auditlog-spin 1s linear infinite;
+}
+
+.auditlog-error-message {
+    background-color: #fff1f2;
+    border-radius: 0.75rem;
+    padding: 1rem 1.5rem;
+    color: #dc2626;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    border-left: 4px solid #dc2626;
+}
+
+.auditlog-error-icon {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+}
+
+.auditlog-loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.auditlog-spinner {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #e2e8f0;
+    border-top-color: #4f46e5;
+    border-radius: 50%;
+    animation: auditlog-spin 1s linear infinite;
+    margin-bottom: 1.5rem;
+}
+
+.auditlog-loading-text {
+    font-size: 1rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.auditlog-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.auditlog-results-count {
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.auditlog-table-responsive {
+    overflow-x: auto;
+}
+
+.auditlog-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px; /* Increased from 800px */
+}
+
+.auditlog-tr {
+    border-bottom: 1px solid #f1f5f9;
+    transition: background-color 0.2s ease;
+}
+
+.auditlog-tr:hover {
+    background-color: #f8fafc;
+}
+
+.auditlog-highlight-text {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.auditlog-primary-text {
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.auditlog-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    background-color: #e0f2fe;
+    color: #0369a1;
+    border-radius: 9999px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+}
+
+.auditlog-link {
+    color: #4f46e5;
+    text-decoration: none;
+}
+
+.auditlog-link:hover {
+    text-decoration: underline;
+}
+
+.auditlog-action-buttons-cell {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.auditlog-button-edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: #e0e7ff;
+    color: #4f46e5;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.auditlog-button-edit:hover {
+    background-color: #c7d2fe;
+}
+
+.auditlog-button-delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: #fee2e2;
+    color: #dc2626;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.auditlog-button-delete:hover {
+    background-color: #fecaca;
+}
+
+.auditlog-no-results {
+    padding: 3rem;
+}
+
+.auditlog-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.auditlog-empty-state-image {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 1.5rem;
+    opacity: 0.7;
+}
+
+.auditlog-empty-state-text {
+    font-size: 1.125rem;
+    color: #64748b;
+    font-weight: 500;
+    margin: 0 0 0.5rem 0;
+}
+
+.auditlog-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.auditlog-pagination-info {
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.auditlog-pagination-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.auditlog-pagination-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    background-color: #ffffff;
+    color: #4f46e5;
+    border: 1px solid #e2e8f0;
+}
+
+.auditlog-pagination-button:hover {
+    background-color: #f1f5f9;
+    border-color: #c7d2fe;
+}
+
+.auditlog-pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.auditlog-pagination-button-active {
+    background-color: #4f46e5;
+    color: #ffffff;
+    border-color: #4f46e5;
+}
+
+.auditlog-pagination-button-active:hover {
+    background-color: #4338ca;
+    border-color: #4338ca;
+}
+
+@keyframes auditlog-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

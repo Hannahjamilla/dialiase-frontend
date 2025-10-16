@@ -1,0 +1,449 @@
+/* TreatmentInProgressModal.css - Wider & Bigger Version */
+
+/* Base styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.in-progress-modal {
+    background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+    border-radius: 18px;
+    width: 92%;
+    max-width: 550px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: modalSlideUp 0.4s ease-out 0.1s forwards;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+/* Header styles */
+.modal-header {
+    background: linear-gradient(135deg, #0077b6, #00b4d8);
+    color: white;
+    padding: 1.4rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.timer-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+.timer-icon {
+    margin-right: 12px;
+    font-size: 1.7rem;
+    animation: swing 3s ease-in-out infinite;
+}
+
+/* Content styles */
+.modal-content {
+    padding: 1.8rem;
+    color: #333;
+}
+
+.weight-display {
+    background: white;
+    border-radius: 12px;
+    padding: 1.4rem;
+    margin-bottom: 1.8rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #00b4d8;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.weight-display:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 180, 216, 0.2);
+}
+
+.weight-value {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: #0077b6;
+}
+
+.weight-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.status-message {
+    display: flex;
+    align-items: center;
+    background: #fff8e1;
+    padding: 1rem 1.2rem;
+    border-radius: 10px;
+    margin-bottom: 1.8rem;
+    border-left: 4px solid #ffc107;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.alert-icon {
+    margin-right: 12px;
+    color: #ff9800;
+    animation: pulse 1.5s infinite;
+}
+
+.progress-notes {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #555;
+    padding: 1rem;
+    background: rgba(0, 180, 216, 0.05);
+    border-radius: 10px;
+    border-left: 3px solid rgba(0, 180, 216, 0.3);
+    animation: fadeIn 0.7s ease-out;
+}
+
+.reminder-note {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    background: rgba(255, 152, 0, 0.1);
+    border-radius: 8px;
+    color: #e65100;
+    display: flex;
+    align-items: center;
+    animation: pulseWarning 2s infinite;
+}
+
+.reminder-note svg {
+    margin-right: 10px;
+}
+
+/* Footer styles */
+.modal-footer {
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.stop-button {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    border: none;
+    padding: 1rem 1.8rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(220, 53, 69, 0.3);
+    width: 100%;
+    max-width: 300px;
+}
+
+.stop-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+}
+
+.stop-button:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.stop-button:disabled:hover {
+    transform: none;
+}
+
+.confirmation-buttons {
+    animation: fadeIn 0.4s ease-out;
+}
+
+.confirmation-buttons p {
+    margin-bottom: 1.2rem;
+    color: #333;
+    font-size: 1.05rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.confirm-button, .cancel-button {
+    border: none;
+    padding: 0.9rem 1.4rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm-button {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    box-shadow: 0 3px 8px rgba(220, 53, 69, 0.3);
+}
+
+.confirm-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+}
+
+.cancel-button {
+    background: linear-gradient(135deg, #6c757d, #5a6268);
+    color: white;
+    box-shadow: 0 3px 8px rgba(108, 117, 125, 0.3);
+}
+
+.cancel-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+    from { 
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@keyframes pulseWarning {
+    0% { 
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.1);
+    }
+    70% { 
+        transform: scale(1.01);
+        box-shadow: 0 0 0 10px rgba(255, 152, 0, 0);
+    }
+    100% { 
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 152, 0, 0);
+    }
+}
+
+@keyframes swing {
+    0% { transform: rotate(0deg); }
+    15% { transform: rotate(5deg); }
+    30% { transform: rotate(-5deg); }
+    45% { transform: rotate(3deg); }
+    60% { transform: rotate(-3deg); }
+    75% { transform: rotate(1deg); }
+    85% { transform: rotate(-1deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Fluid animation for peritoneal treatment concept */
+.in-progress-modal::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00b4d8, #0077b6, #00b4d8);
+    background-size: 200% auto;
+    animation: fluidFlow 3s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes fluidFlow {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .in-progress-modal {
+        width: 95%;
+        max-width: none;
+    }
+    
+    .modal-header {
+        padding: 1.2rem;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .timer-display {
+        font-size: 1.8rem;
+    }
+    
+    .modal-content {
+        padding: 1.4rem;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .confirm-button, .cancel-button {
+        width: 100%;
+        padding: 0.8rem;
+    }
+    
+    .stop-button {
+        padding: 0.9rem;
+        font-size: 1rem;
+    }
+}
+
+
+/* Reminder Alert Styles */
+.reminder-alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.reminder-alert-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-left: 6px solid #ff9800;
+}
+
+.reminder-alert-content h3 {
+    color: #d32f2f;
+    margin-bottom: 1rem;
+}
+
+.reminder-alert-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.reminder-bell-icon {
+    font-size: 3rem;
+    color: #ff9800;
+    margin-bottom: 1rem;
+    animation: ring 0.5s ease-in-out 2;
+}
+
+.acknowledge-button {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.acknowledge-button:hover {
+    background-color: #0d8bf2;
+}
+
+/* Animation for the reminder icon */
+@keyframes ring {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(-15deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Pulse animation for the reminder note */
+.pulse-icon {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.reminder-note {
+    background-color: #fff3e0;
+    padding: 0.8rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    border-left: 4px solid #ff9800;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}

@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .primary-btn{
+        @apply inline-block bg-primary text-white
+        font-semibold rounded-lg hover:bg-secondary
+        duration-200 shadow-[0px_10px_8px_-7px]
+        hover:shadow-[0px_10px_8px_-7px_#69a79c] py-2 px-6;
+    }
+}
+
+@layer utilities{
+    .drop-shadow{
+        filter: drop-shadow(6px 8px 10px rgba(0,0,0,0.5));
+    }
+    .drop-shadow2{
+        filter: drop-shadow(6px 8px 10px rgba(255, 255, 255, 0.3));
+    }
+    .text-stroke-white {
+  -webkit-text-stroke: 1px white;
+  color: transparent;
+  -webkit-text-fill-color: #477977; /* fallback color if needed */
+}
+
+
+}
+
+
+html {
+  scroll-behavior: smooth;
+}

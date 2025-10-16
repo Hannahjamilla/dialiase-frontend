@@ -1,0 +1,195 @@
+/* Register.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #d9e9e4, #d5dff7);
+    height: 100vh;
+}
+
+/* Container that holds the two sections */
+.validate-container {
+    width: 900px;
+    height: 520px;
+    margin: 60px auto;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Left Side - Form Area */
+.validate-form {
+    width: 50%;
+    background-color: #ffffff;
+    padding: 40px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+/* Logo on top */
+.validate-logo {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    background: url('/path/to/logo.png') no-repeat center center;
+    background-size: contain;
+}
+
+/* Header text */
+.validate-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.validate-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2e4574;
+    margin-bottom: 5px;
+}
+
+.validate-subtitle {
+    font-size: 14px;
+    color: #888;
+}
+
+/* Input container */
+.validate-input-container {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.validate-input {
+    width: 100%;
+    padding: 12px 40px 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f1f2f6;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.validate-input:focus {
+    border: 1px solid #2e4574;
+}
+
+/* Icons inside inputs */
+.validate-input-container::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Icon per input */
+.validate-input-container:nth-child(2)::after {
+    background-image: url('/icons/id-icon.png'); /* Replace with your actual ID icon path */
+}
+
+.validate-input-container:nth-child(3)::after {
+    background-image: url('/icons/email-icon.png'); /* Replace with your actual email icon path */
+}
+
+/* Button */
+.validate-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2e4574;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.validate-button:hover {
+    background-color: #1e345b;
+}
+
+/* Error text */
+.validate-error {
+    color: red;
+    font-size: 13px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Login link */
+.validate-login-link {
+    margin-top: 15px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.validate-link {
+    color: #2e4574;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.validate-link:hover {
+    text-decoration: underline;
+}
+
+/* Right Side - Welcome Panel */
+.validate-container > div:last-child {
+    width: 50%;
+    background-color: #2e4574;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 80px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.validate-container > div:last-child h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.validate-container > div:last-child h1 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.validate-container > div:last-child p {
+    font-size: 13px;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.validate-container > div:last-child .validate-link {
+    background: transparent;
+    border: 1px solid #ffffff;
+    padding: 10px 25px;
+    border-radius: 6px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.validate-container > div:last-child .validate-link:hover {
+    background-color: #fff;
+    color: #2e4574;
+}

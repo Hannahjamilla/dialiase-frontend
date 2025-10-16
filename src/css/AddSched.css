@@ -1,0 +1,418 @@
+/* AddSched.css */
+.patientlist-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+  }
+  
+  .patientlist-content {
+    flex: 1;
+    padding: 2rem;
+    margin-left: 250px; /* Adjust based on your sidebar width */
+  }
+  
+  .patientlist-header {
+    margin-bottom: 2rem;
+  }
+  
+  .patientlist-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .patientlist-heading {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .patientlist-sub-heading {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+  
+  .patientlist-header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    gap: 1rem;
+  }
+  
+  .patientlist-search-box {
+    position: relative;
+    flex-grow: 1;
+    max-width: 400px;
+  }
+  
+  .patientlist-search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7f8c8d;
+  }
+  
+  .patientlist-search-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+  }
+  
+  .patientlist-search-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  }
+  
+  .patientlist-action-buttons {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .patientlist-button-secondary {
+    padding: 0.75rem 1.25rem;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .patientlist-button-secondary:hover {
+    background-color: #d6e0e3;
+  }
+  
+  .patientlist-button-secondary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .patientlist-error-message {
+    background-color: #fdecea;
+    color: #d32f2f;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .patientlist-error-icon {
+    font-size: 1.25rem;
+  }
+  
+  .patientlist-retry-button {
+    margin-left: auto;
+    padding: 0.5rem 1rem;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .patientlist-retry-button:hover {
+    background-color: #b71c1c;
+  }
+  
+  .patientlist-loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+  }
+  
+  .patientlist-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid #395886;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .patientlist-loading-text {
+    color: #7f8c8d;
+    font-size: 1rem;
+  }
+  
+  .patientlist-table-wrapper {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  .patientlist-table-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .patientlist-results-count {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+  }
+  
+  .patientlist-table-responsive {
+    overflow-x: auto;
+  }
+  
+  .patientlist-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .patientlist-th {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    background-color: #f8f9fa;
+    color: #34495e;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .patientlist-tr {
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+  }
+  
+  .patientlist-tr:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .patientlist-td {
+    padding: 1rem 1.5rem;
+    color: #2c3e50;
+    font-size: 0.95rem;
+  }
+  
+  .patientlist-highlight-text {
+    font-weight: 500;
+    color: #395886;
+  }
+  
+  .patientlist-primary-text {
+    font-weight: 500;
+    color: #2c3e50;
+  }
+  
+  .patientlist-truncate-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+  }
+  
+  .patientlist-button-schedule {
+    padding: 0.5rem 1rem;
+    background-color: #395886;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .patientlist-button-schedule:hover {
+    background-color: #395886;
+  }
+  
+  .patientlist-no-results {
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+  
+  .patientlist-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .patientlist-empty-state-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+  }
+  
+  .patientlist-empty-state-text {
+    color: #7f8c8d;
+    font-weight: 500;
+    margin: 0;
+  }
+  
+  .patientlist-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .patientlist-pagination-info {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+  }
+  
+  .patientlist-pagination-controls {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .patientlist-pagination-button {
+    padding: 0.5rem 0.75rem;
+    background-color: white;
+    color: #2c3e50;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .patientlist-pagination-button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .patientlist-pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .patientlist-pagination-button-active {
+    background-color: #395886;
+    color: white;
+    border-color: #3498db;
+  }
+  
+  .patientlist-pagination-button-active:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .patientlist-content {
+      margin-left: 0;
+      padding: 1rem;
+    }
+    
+    .patientlist-header-controls {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .patientlist-search-box {
+      max-width: none;
+    }
+    
+    .patientlist-action-buttons {
+      justify-content: flex-end;
+    }
+    
+    .patientlist-th, .patientlist-td {
+      padding: 0.75rem;
+    }
+    
+    .patientlist-pagination {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    
+    .patientlist-pagination-controls {
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .patientlist-heading {
+      font-size: 1.5rem;
+    }
+    
+    .patientlist-button-secondary, .patientlist-button-schedule {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.85rem;
+    }
+    
+    .patientlist-table {
+      display: block;
+    }
+    
+    .patientlist-tr {
+      display: block;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #eee;
+    }
+    
+    .patientlist-th {
+      display: none;
+    }
+    
+    .patientlist-td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .patientlist-td:before {
+      content: attr(data-label);
+      font-weight: 600;
+      color: #7f8c8d;
+      margin-right: 1rem;
+      flex: 1;
+    }
+    
+    .patientlist-td > div, 
+    .patientlist-td > span {
+      flex: 2;
+      text-align: right;
+    }
+    
+    .patientlist-td:last-child {
+      border-bottom: none;
+    }
+    
+    .patientlist-pagination-controls {
+      flex-wrap: wrap;
+    }
+  }

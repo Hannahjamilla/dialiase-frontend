@@ -1,0 +1,595 @@
+.admin-dashboard-container {
+  display: flex;
+  gap: 1rem;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+  background-color: #EEF0F5;
+  color: #2c3e50;
+  min-height: 100vh;
+}
+
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #EEF0F5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.loading-screen .spinner {
+  width: clamp(50px, 10vw, 80px);
+  height: clamp(50px, 10vw, 80px);
+  border: 5px solid rgba(243, 243, 243, 0.6);
+  border-top: 5px solid #395886;
+  border-right: 5px solid rgba(57, 88, 134, 0.7);
+  border-bottom: 5px solid rgba(57, 88, 134, 0.4);
+  border-radius: 50%;
+  animation: spin 1.2s cubic-bezier(0.5, 0.1, 0.4, 0.9) infinite;
+  will-change: transform;
+  box-shadow: 0 4px 12px rgba(57, 88, 134, 0.1);
+}
+
+.loading-screen p {
+  color: #395886;
+  font-size: clamp(16px, 3vw, 20px);
+  font-weight: 500;
+  font-family: sans-serif;
+  animation: fadePulse 1.5s ease-in-out infinite;
+  margin-top: 20px;
+}
+
+.loading-screen .dots {
+  display: inline-block;
+  animation: dotPulse 1.5s infinite;
+}
+
+.admin-main-content {
+  flex: 2.5;
+  margin-left: 280px;
+}
+
+.dashboard-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #395886;
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.welcome-date {
+  color: #477977;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+}
+
+.welcome-day {
+  font-weight: 600;
+}
+
+.welcome-banner {
+  background-color: #395886;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  height: 14rem;
+  margin-bottom: 2rem;
+}
+
+.welcome-text h1 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin: 0;
+}
+
+.welcome-text h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 1rem 0;
+}
+
+.welcome-text p {
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.admin-image {
+  width: 50%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.dashboard-content-section {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.action-buttons {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.refresh-btn {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  padding: 8px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.refresh-btn:hover {
+  background-color: #f5f5f5;
+}
+
+.add-user-btn {
+  background-color: #395886;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.add-user-btn:hover {
+  background-color: #2a4365;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-top: 4px solid;
+  cursor: pointer;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.stat-label {
+  color: #6b7280;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  color: #395886;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.stat-trend {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.stat-trend.up {
+  color: #10b981;
+}
+
+.stat-trend.down {
+  color: #ef4444;
+}
+
+.recent-data-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.recent-patients, .recent-treatments {
+  background-color: #f8fafc;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.recent-patients h3, .recent-treatments h3 {
+  color: #395886;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.recent-table-container {
+  overflow-x: auto;
+}
+
+.recent-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.recent-table th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background-color: #edf2f7;
+  color: #4a5568;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.recent-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.9rem;
+}
+
+.patient-type, .treatment-status, .patient-status {
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.patient-type.pediatric {
+  background-color: #bee3f8;
+  color: #2b6cb0;
+}
+
+.patient-type.adult {
+  background-color: #fed7d7;
+  color: #c53030;
+}
+
+.treatment-status.completed, .patient-status.active {
+  background-color: #c6f6d5;
+  color: #22543d;
+}
+
+.treatment-status.ongoing, .patient-status.pending {
+  background-color: #feebc8;
+  color: #7b341e;
+}
+
+.view-btn {
+  background-color: transparent;
+  border: none;
+  color: #4299e1;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.view-btn:hover {
+  color: #2b6cb0;
+}
+
+.no-data-message {
+  text-align: center;
+  padding: 2rem;
+  color: #718096;
+  font-style: italic;
+}
+
+.view-all-btn {
+  background-color: #395886;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  display: block;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.view-all-btn:hover {
+  background-color: #2a4365;
+}
+
+.admin-side-panel {
+  flex: 1.3;
+}
+
+.user-profile-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+}
+
+.user-name {
+  margin: 0;
+  font-weight: bold;
+  color: #395886;
+}
+
+.user-role {
+  color: #7f8c8d;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #395886;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.reminders-section {
+  margin-bottom: 2rem;
+}
+
+.reminders-section h3 {
+  color: #395886;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.reminders-container {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.add-reminder {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.add-reminder input {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
+}
+
+.add-reminder button {
+  background-color: #395886;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reminders-list {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.no-reminders {
+  color: #7f8c8d;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.reminders-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.reminder-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reminder-item.completed {
+  opacity: 0.7;
+}
+
+.reminder-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.reminder-checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 2px solid #ddd;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.reminder-checkbox.checked {
+  background-color: #2ecc71;
+  border-color: #2ecc71;
+}
+
+.reminder-text {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+.reminder-item.completed .reminder-text {
+  text-decoration: line-through;
+  color: #95a5a6;
+}
+
+.reminder-date {
+  font-size: 0.75rem;
+  color: #7f8c8d;
+  margin-top: 0.25rem;
+}
+
+.delete-reminder {
+  background-color: transparent;
+  border: none;
+  color: #e74c3c;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quick-actions-section {
+  margin-bottom: 2rem;
+}
+
+.quick-actions-section h3 {
+  color: #395886;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.quick-action-btn {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-radius: 12px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-color: currentColor;
+}
+
+.quick-action-btn:hover {
+  background-color: currentColor;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.quick-action-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-section {
+  margin-bottom: 2rem;
+}
+
+.calendar-section h3 {
+  color: #395886;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.calendar-container {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadePulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes dotPulse {
+  0% { opacity: 0.2; transform: translateY(0); }
+  20% { opacity: 1; transform: translateY(-3px); }
+  40%, 100% { opacity: 0.2; transform: translateY(0); }
+}
