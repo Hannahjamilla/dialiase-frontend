@@ -12,7 +12,7 @@ import {
   FaSync
 } from "react-icons/fa";
 import { FiAlertCircle, FiMail, FiLock, FiUser, FiCheck, FiX } from "react-icons/fi";
-import logoImage from "../assets/images/logo.PNG";
+import logoImage from "../assets/images/logo.png";
 import staffPic from "../assets/images/staffpic.png";
 
 import PrivacyPolicyModal from "./PrivacyPolicyModal";
