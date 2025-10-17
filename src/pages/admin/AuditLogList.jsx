@@ -11,9 +11,9 @@ import AdminSidebar from './AdminSidebar';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import AnalyticsModal from './AnalyticsModal';
-import logoImage from "../../images/logo.PNG";
-import staffPic from "../../assets/images/staffPic.PNG";
-import noResultsImage from '../../assets/images/no-results.PNG';
+import logoImage from "../../images/logo.png";
+import staffPic from "../../assets/images/staffPic.png";
+import noResultsImage from '../../assets/images/no-results.png';
 import ArchiveListModal from './ArchiveListModal';
 
 const AuditLogList = () => {

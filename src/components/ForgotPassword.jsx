@@ -12,8 +12,8 @@ import {
   FaServer 
 } from "react-icons/fa";
 import { FiAlertCircle } from "react-icons/fi";
-import logoImage from "../assets/images/logo.PNG";
-import staffPic from "../assets/images/staffpic.png";
+import logoImage from "../assets/images/logo.png";
+import staffPic from "../assets/images/staffPic.png";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 

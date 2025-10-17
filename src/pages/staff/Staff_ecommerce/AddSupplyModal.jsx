@@ -69,7 +69,7 @@ const AddSupplyModal = ({ isOpen, onClose, onSave }) => {
       if (!validTypes.includes(file.type)) {
         setErrors(prev => ({
           ...prev,
-          image: 'Please select a valid image (JPEG, PNG, JPG, GIF)'
+          image: 'Please select a valid image (JPEG,.PNG, JPG, GIF)'
         }));
         return;
       }
@@ -824,7 +824,7 @@ const AddSupplyModal = ({ isOpen, onClose, onSave }) => {
                               opacity: 0.6,
                               marginTop: '6px'
                             }}>
-                              Required - Supports JPEG, PNG, GIF (Max 2MB)
+                              Required - Supports JPEG,.PNG, GIF (Max 2MB)
                             </div>
                           </>
                         )}

@@ -12,9 +12,9 @@ import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import PatientDetailsModal from './PatientDetailsModal';
 import PatientTreatmentsModal from './PatientTreatmentsModal';
-import logoImage from "../../assets/images/logo.PNG";
-import staffPic from "../../assets/images/staffPic.PNG";
-import noResultsImage from '../../assets/images/no-results.PNG';
+import logoImage from "../../assets/images/logo.png";
+import staffPic from "../../assets/images/staffPic.png";
+import noResultsImage from '../../assets/images/no-results.png';
 
 const OutpatientList = () => {
   // State management

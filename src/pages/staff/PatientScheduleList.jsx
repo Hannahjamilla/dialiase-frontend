@@ -23,8 +23,8 @@ import {
 } from '@mui/material';
 import { format, parseISO, isToday } from 'date-fns';
 import StaffSidebar from './StaffSidebar';
-import logoImage from "../../assets/images/logo.PNG";
-import noResultsImage from '../../assets/images/no-results.PNG';
+import logoImage from "../../assets/images/logo.png";
+import noResultsImage from '../../assets/images/no-results.png';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import Notification from '../../components/Notification';

@@ -29,7 +29,7 @@ import autoTable from 'jspdf-autotable';
 import api from '../../api/axios';
 import Notification from '../../components/Notification';
 import StaffSidebar from './StaffSidebar';
-import logoImage from "../../assets/images/logo.PNG";
+import logoImage from "../../assets/images/logo.png";
 
 const StaffDoctorsStatus = () => {
   const [doctors, setDoctors] = useState([]);

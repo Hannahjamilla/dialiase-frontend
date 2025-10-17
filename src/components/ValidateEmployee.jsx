@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaUser, FaKey, FaArrowRight, FaEye, FaEyeSlash } from "react-icons/fa";
 import { FiAlertCircle } from "react-icons/fi";
 import axios from "axios";
-import logoImage from "../assets/images/logo.PNG";
-import staffPic from "../assets/images/staffPic.PNG";
+import logoImage from "../assets/images/logo.png";
+import staffPic from "../assets/images/staffPic.png";
 
 import PrivacyPolicyModal from "./PrivacyPolicyModal";
 import TermsModal from "./TermsModal";

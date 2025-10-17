@@ -550,7 +550,7 @@ const startStopTimer = () => {
         backgroundColor: '#fff',
         borderRadius: '8px',
         boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
-        marginTop: '120px',
+        // marginTop: '120px',
         width: '380%',
         marginLeft: '-30%',
         marginTop: '210px',

@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaUser, FaEnvelope, FaIdCard, FaArrowLeft, FaCheck, FaInfoCircle } from 'react-icons/fa';
 import axios from 'axios';
-import logoImage from '../images/logo.PNG';
+import logoImage from '../images/logo.png';
 
 const HCPRegister = () => {
   const navigate = useNavigate();

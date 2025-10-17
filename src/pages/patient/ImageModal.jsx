@@ -261,8 +261,6 @@ const ImageModal = ({ image, onClose, colors, onAddToCart, onToggleFavorite, isF
               </span>
               
               <span style={{
-                fontSize: '0.9rem',
-                color: colors.textMuted,
                 backgroundColor: image.stock > 10 ? `${colors.success}15` : `${colors.warning}15`,
                 color: image.stock > 10 ? colors.success : colors.warning,
                 padding: '0.5rem 1rem',
@@ -270,7 +268,8 @@ const ImageModal = ({ image, onClose, colors, onAddToCart, onToggleFavorite, isF
                 fontWeight: '700',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.5rem'
+                gap: '0.5rem',
+                fontSize: '0.9rem'
               }}>
                 <FiPackage size={14} />
                 {image.stock > 10 ? `${image.stock} in stock` : `Only ${image.stock} left`}

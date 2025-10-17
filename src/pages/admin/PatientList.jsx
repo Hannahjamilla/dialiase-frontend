@@ -11,9 +11,9 @@ import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import PatientDetailsModal from './patientDetailsAdmin';
 import PatientListAnalyticsModal from './PatientListAnalyticsModal';
-import logoImage from "../../images/logo.PNG";
-import staffPic from "../../assets/images/staffPic.PNG";
-import noResultsImage from '../../assets/images/no-results.PNG';
+import logoImage from "../../images/logo.png";
+import staffPic from "../../assets/images/staffPic.png";
+import noResultsImage from '../../assets/images/no-results.png';
 
 const PatientList = () => {
   // State management

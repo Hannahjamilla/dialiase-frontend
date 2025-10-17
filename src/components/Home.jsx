@@ -8,9 +8,9 @@ import {
   FaTimes, FaDownload 
 } from "react-icons/fa";
 import styled, { createGlobalStyle, css } from "styled-components";
-import logoImage from "../assets/images/logo.PNG";
-import doctorPic from "../assets/images/doctorPic.PNG";
-import staffPic from "../assets/images/staffPic.PNG";
+import logoImage from "../assets/images/logo.png";
+import doctorPic from "../assets/images/doctorPic.png";
+import staffPic from "../assets/images/staffPic.png";
 
 // Color palette
 const colors = {

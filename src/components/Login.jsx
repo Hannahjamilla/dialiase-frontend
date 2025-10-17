@@ -13,7 +13,7 @@ import {
 } from "react-icons/fa";
 import { FiAlertCircle, FiMail, FiLock, FiUser, FiCheck, FiX } from "react-icons/fi";
 import logoImage from "../assets/images/logo.png";
-import staffPic from "../assets/images/staffpic.png";
+import staffPic from "../assets/images/staffPic.png";
 
 import PrivacyPolicyModal from "./PrivacyPolicyModal";
 import TermsModal from "./TermsModal";
