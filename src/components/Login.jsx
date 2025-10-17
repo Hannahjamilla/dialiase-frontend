@@ -107,8 +107,16 @@ function Login() {
     setIsLoading(true);
     
     try {
-      const response = await fetch('http://localhost:8000/api/login', {
+      // First get CSRF cookie
+      await fetch('https://dialiease-backend-1.onrender.com/sanctum/csrf-cookie', {
+        method: 'GET',
+        credentials: 'include'
+      });
+
+      // Then make login request
+      const response = await fetch('https://dialiease-backend-1.onrender.com/api/login', {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },
