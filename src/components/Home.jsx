@@ -1403,15 +1403,10 @@ function Home() {
                       Point your camera at the QR code
                     </InstructionStep>
                     <InstructionStep>
-                      Tap the notification that appears
-                    </InstructionStep>
-                    <InstructionStep>
-                      Follow the instructions to download and install
+                      Tap the notification that appears! Enjoy Stay Healthy with Dialiease!
                     </InstructionStep>
                   </InstructionsList>
                 </InstructionsContainer>
-
-
               </QRCodeContainer>
 
               <CloseButton onClick={() => setShowQRModal(false)}>
