@@ -5,12 +5,14 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { 
   FaArrowDown, FaHospital, FaHeartbeat, FaUsers, 
   FaCog, FaChartLine, FaMobileAlt, FaBars, 
-  FaTimes, FaDownload 
+  FaTimes, FaQrcode, FaCamera, FaAppStore, 
+  FaGooglePlay, FaApple, FaAndroid 
 } from "react-icons/fa";
 import styled, { createGlobalStyle, css } from "styled-components";
 import logoImage from "../assets/images/logo.png";
 import doctorPic from "../assets/images/doctorPic.png";
 import staffPic from "../assets/images/staffPic.png";
+import qrCode from "../assets/images/DialieaseQR.jpg";
 
 // Color palette
 const colors = {
@@ -40,7 +42,6 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-
   }
 
   html {
@@ -81,7 +82,6 @@ const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
-    
   }
 
   img {
@@ -110,7 +110,6 @@ const Container = styled.div`
   background: ${colors.white};
   overflow-x: hidden;
   padding-top: 80px; /* Fixed padding */
-  
 
   @media (max-width: ${breakpoints.xl}) {
     padding-top: 80px;
@@ -326,7 +325,6 @@ const Section = styled.section`
   width: 100%;
   padding: 4rem 0;
   
-  
   @media (min-width: ${breakpoints.md}) {
     padding: 5rem 0;
   }
@@ -342,7 +340,6 @@ const ConstrainedWidth = styled.div`
   max-width: 1800px; /* Wider max-width */
   margin: 0 auto;
   padding: 0 2rem;
-        
 
   @media (min-width: ${breakpoints.ultra}) {
     padding: 0 4rem;
@@ -416,7 +413,6 @@ const HeroImage = styled(motion.img)`
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
 
-
   &:hover {
     transform: scale(1.01);
   }
@@ -434,7 +430,6 @@ const Heading = styled.h1`
   color: ${colors.primary};
   font-weight: 700;
   line-height: 1.2;
-
 
   span {
     color: ${colors.accent};
@@ -455,9 +450,6 @@ const Subheading = styled.p`
   max-width: 42rem;
   margin-left: auto;
   margin-right: auto;
-
-  
-
 
   @media (min-width: ${breakpoints.lg}) {
     margin-left: 0;
@@ -550,12 +542,151 @@ const SecondaryButton = styled(Button)`
   }
 `;
 
-const DownloadButton = styled(Button)`
+const QRCodeButton = styled(Button)`
   background-color: ${colors.accent};
   color: ${colors.white};
 
   &:hover {
     background-color: #3a8a87;
+  }
+`;
+
+// QR Code Modal Components - UPDATED LAYOUT
+const QRModal = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(8px);
+  padding: 1rem;
+`;
+
+const QRModalContent = styled(motion.div)`
+  background: ${colors.white};
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+`;
+
+const QRCodeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+`;
+
+const QRCodeImage = styled.img`
+  width: 220px;
+  height: 220px;
+  border-radius: 0.75rem;
+  border: 3px solid ${colors.accent};
+  padding: 0.5rem;
+  background: ${colors.white};
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+`;
+
+const QRCodeTitle = styled.h3`
+  color: ${colors.primary};
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+`;
+
+const QRCodeSubtitle = styled.p`
+  color: ${colors.textLight};
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 500;
+`;
+
+const InstructionsContainer = styled.div`
+  background: ${colors.lightGray};
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: left;
+  width: 100%;
+  border-left: 4px solid ${colors.accent};
+`;
+
+const InstructionsTitle = styled.h4`
+  color: ${colors.primary};
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+const InstructionsList = styled.ol`
+  color: ${colors.textLight};
+  padding-left: 1.5rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+`;
+
+const InstructionStep = styled.li`
+  font-size: 0.95rem;
+  line-height: 1.4;
+`;
+
+const StoreButtonsContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.5rem;
+`;
+
+const StoreButton = styled(motion.button)`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  border: 2px solid ${colors.primary};
+  background: transparent;
+  color: ${colors.primary};
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: ${colors.primary};
+    color: ${colors.white};
+  }
+`;
+
+const CloseButton = styled.button`
+  background: ${colors.primary};
+  color: ${colors.white};
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+  margin-top: 0.5rem;
+
+  &:hover {
+    background: ${colors.secondary};
   }
 `;
 
@@ -914,6 +1045,7 @@ function Home() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [showQRModal, setShowQRModal] = useState(false);
 
   // Check for mobile viewport
   useEffect(() => {
@@ -1045,12 +1177,13 @@ function Home() {
                         Get Started
                       </PrimaryButton>
                     </Link>
-                    <DownloadButton
+                    <QRCodeButton
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.98 }}
+                      onClick={() => setShowQRModal(true)}
                     >
-                      <FaDownload /> Download App
-                    </DownloadButton>
+                      <FaQrcode /> Scan QR Code
+                    </QRCodeButton>
                   </ButtonContainer>
                 </HeroText>
                 <HeroImageContainer>
@@ -1136,12 +1269,13 @@ function Home() {
                         Learn More
                       </SecondaryButton>
                     </Link>
-                    <DownloadButton
+                    <QRCodeButton
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.98 }}
+                      onClick={() => setShowQRModal(true)}
                     >
-                      <FaDownload /> Case Studies
-                    </DownloadButton>
+                      <FaQrcode /> Get App
+                    </QRCodeButton>
                   </ButtonContainer>
                 </TextCard>
               </ImageGrid>
@@ -1175,6 +1309,18 @@ function Home() {
                       Get Started Today
                     </PrimaryButton>
                   </Link>
+                  <QRCodeButton
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setShowQRModal(true)}
+                    style={{
+                      backgroundColor: colors.white,
+                      color: colors.accent,
+                      border: `2px solid ${colors.white}`,
+                    }}
+                  >
+                    <FaQrcode /> Mobile App
+                  </QRCodeButton>
                 </ButtonContainer>
               </motion.div>
             </ConstrainedWidth>
@@ -1225,6 +1371,55 @@ function Home() {
             </Copyright>
           </Footer>
         </ContentWrapper>
+
+        {/* QR Code Modal */}
+        {showQRModal && (
+          <QRModal
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowQRModal(false)}
+          >
+            <QRModalContent
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <QRCodeContainer>
+                <QRCodeTitle>Download Dialiease Mobile App</QRCodeTitle>
+                <QRCodeSubtitle>Scan with your phone's camera</QRCodeSubtitle>
+                <QRCodeImage src={qrCode} alt="Dialiease QR Code" />
+                
+                <InstructionsContainer>
+                  <InstructionsTitle>
+                    <FaCamera /> How to Download
+                  </InstructionsTitle>
+                  <InstructionsList>
+                    <InstructionStep>
+                      Open your phone's camera app
+                    </InstructionStep>
+                    <InstructionStep>
+                      Point your camera at the QR code
+                    </InstructionStep>
+                    <InstructionStep>
+                      Tap the notification that appears
+                    </InstructionStep>
+                    <InstructionStep>
+                      Follow the instructions to download and install
+                    </InstructionStep>
+                  </InstructionsList>
+                </InstructionsContainer>
+
+
+              </QRCodeContainer>
+
+              <CloseButton onClick={() => setShowQRModal(false)}>
+                Close
+              </CloseButton>
+            </QRModalContent>
+          </QRModal>
+        )}
       </Container>
     </>
   );
